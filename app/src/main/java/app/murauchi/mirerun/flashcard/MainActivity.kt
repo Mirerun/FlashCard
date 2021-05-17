@@ -13,10 +13,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //それぞれの単語を作る
-        val apple = Word(R.drawable.apple, "りんご")
-        val banana = Word(R.drawable.banana3, "バナナ")
-        val orange = Word(R.drawable.orange2, "オレンジ")
-        val strawberry = Word(R.drawable.strawberry2, "いちご")
+        val apple = CustomWord(R.drawable.apple, "りんご","apple")
+        val banana = CustomWord(R.drawable.banana3, "バナナ","banana")
+        val orange = CustomWord(R.drawable.orange2, "オレンジ","orange")
+        val strawberry = CustomWord(R.drawable.strawberry2, "いちご","strawberry")
 
         //作ったメソッドを実行
         addWord(apple)
@@ -25,9 +25,12 @@ class MainActivity : AppCompatActivity() {
         addWord(strawberry)
     }
 
-    private fun addWord(word: Word) {
-        val nameTextView = TextView(this)
-        nameTextView.text = word.name
+    private fun addWord(word: CustomWord) {
+        val nameTextView1 = TextView(this)
+        nameTextView1.text = word.jpName
+
+        val nameTextView2 = TextView(this)
+        nameTextView2.text = word.engName
 
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.HORIZONTAL
@@ -36,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         imageView.setImageResource(word.resId)
 
         layout.addView(imageView)
-        layout.addView(nameTextView)
+        layout.addView(nameTextView1)
+        layout.addView(nameTextView2)
 
         container.addView(layout)
 
