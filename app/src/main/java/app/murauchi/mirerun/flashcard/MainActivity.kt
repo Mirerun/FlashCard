@@ -19,10 +19,11 @@ class MainActivity : AppCompatActivity() {
         val strawberry = CustomWord(R.drawable.strawberry2, "いちご","strawberry")
 
         //作ったメソッドを実行
-        addWord(apple)
-        addWord(banana)
-        addWord(orange)
-        addWord(strawberry)
+        val fruits: Array<CustomWord> = arrayOf(apple,banana,orange,strawberry)
+        val size: Int = fruits.size
+        for (i in 0.. (size-1)) {
+            addWord(fruits[i])
+        }
     }
 
     private fun addWord(word: CustomWord) {
